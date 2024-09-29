@@ -2,7 +2,7 @@
 
 namespace HospitalClassINhernite
 {
-    public  class Person
+    abstract class Person
     {
 
         public string Name;
@@ -26,7 +26,7 @@ namespace HospitalClassINhernite
 
 
         }
-        public void DisplayInfo()
+        public virtual void DisplayInfo()
         {
             Console.WriteLine($"Name : {Name} , Age : {Age} , Gender : {gender}");
         }
