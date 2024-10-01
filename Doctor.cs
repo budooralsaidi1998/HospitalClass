@@ -11,14 +11,16 @@ namespace HospitalClassINhernite
       
 
         public int DoctorID;
-        public string Specialization;
+        public enum Specialization { Cardiology, Neurology, Dermatology };
+        public  Specialization sp;
+
        public static List<Patient> Doctorlist = new List<Patient>();
 
 
-        public Doctor(int did , string name,int age , Gender Gender,string spec):base(name, age, Gender)
+        public Doctor(int did , string name,int age , Gender Gender, Specialization spec) :base(name, age, Gender)
         {
             DoctorID = did;
-            Specialization = spec;
+            sp = spec;
         }
 
         public void AddPatient(Patient patient)
@@ -33,11 +35,11 @@ namespace HospitalClassINhernite
         }
 
 
-
+        
         public override void DisplayInfo()
         {
             base.DisplayInfo();
-            Console.WriteLine($" doctor id : {DoctorID } , Specialization : {Specialization} ");
+            Console.WriteLine($" doctor id : {DoctorID } , Specialization : {sp} ");
 
         }
     }
