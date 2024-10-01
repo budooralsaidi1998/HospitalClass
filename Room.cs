@@ -8,7 +8,7 @@ namespace HospitalClassINhernite
     {
         public static List<Patient> roomlist = new List<Patient>();
         public int RoomNumber;
-        public enum RoomType { General, ICU, OperationTheater }
+        public enum RoomType { GIPR, OPR }
         public RoomType R { get; set; }
         public bool IsOccupied;
 
@@ -41,6 +41,10 @@ namespace HospitalClassINhernite
             {
                 IsOccupied = false;
             }
+        }
+        public void DisplayRoomInfo()
+        {
+            Console.WriteLine($"Room Number : {RoomNumber} ,Room Type : {R} , Is occupied : {IsOccupied} ");
         }
     }
 }
