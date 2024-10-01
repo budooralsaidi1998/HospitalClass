@@ -10,17 +10,22 @@ namespace HospitalClassINhernite
         public TimeSpan AppointmentTime;
         public bool IsBooked { get; private set; }
 
-        public Appointment(Patient patient, Doctor doctor,DateTime dateappo)
+        public Appointment(Patient patient, Doctor doctor,DateTime dateappo,TimeSpan appointmentTime,bool booked)
         {
             this.patient = patient;
             this.doctor = doctor;
             AppointmentDate=dateappo;
-
+            AppointmentTime=appointmentTime;
+            AppointmentTime = appointmentTime;
+            IsBooked = booked;
         }
 
-        public void ScheduleAppointment(DateTime dateappo)
+        public void ScheduleAppointment(DateTime appointmentDate, TimeSpan appointmentTime)
         {
-            AppointmentDate = dateappo;
+            //is booked 
+            IsBooked = true;
+           
+            Console.WriteLine($"Appointment scheduled for {patient.Name} on {AppointmentDate} at {AppointmentTime}");
         }
 
 
@@ -32,7 +37,7 @@ namespace HospitalClassINhernite
 
         public void GetAppointmentDetails()
         {
-            Console.WriteLine($"Appointment scheduled for {patient.Name} with {doctor.Name} on {AppointmentDate}");
+            Console.WriteLine($"Appointment for: {patient.Name}, Date: {AppointmentDate}, Time: {AppointmentTime}, IsBooked: {IsBooked}");
         }
 
 
