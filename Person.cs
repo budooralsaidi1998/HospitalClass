@@ -2,33 +2,25 @@
 
 namespace HospitalClassINhernite
 {
-    abstract class Person
+   public abstract class Person
     {
 
         public string Name;
         public int Age;
         public string gender;
-
-        public Person(string name, int age, string Gender)
+        public enum Gender { Male, Female, Other }
+        public Gender g { get; set; }
+        public Person(string name, int age, Gender gender)
         {
             Name = name;
             Age = age;
-            if (Gender == "femal")
-            {
-             
-                gender = Gender;
-            }
-            else
-            {
-                gender = Gender;
-            }
-
+           g=gender;
 
 
         }
         public virtual void DisplayInfo()
         {
-            Console.WriteLine($"Name : {Name} , Age : {Age} , Gender : {gender}");
+            Console.WriteLine($"Name : {Name} , Age : {Age} , Gender : {g}");
         }
 
 
