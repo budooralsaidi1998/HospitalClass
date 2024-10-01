@@ -7,6 +7,8 @@ namespace HospitalClassINhernite
        public Patient patient;
         public Doctor doctor;
         public DateTime ?AppointmentDate;
+        public TimeSpan AppointmentTime;
+        public bool IsBooked { get; private set; }
 
         public Appointment(Patient patient, Doctor doctor,DateTime dateappo)
         {
