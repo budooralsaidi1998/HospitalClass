@@ -17,6 +17,7 @@ namespace HospitalClassINhernite
        public static List<Patient> Doctorlist = new List<Patient>();
 
         public static List<Clinic> AssignedClinics = new List<Clinic>();
+
         public Doctor(int did , string name,int age , Gender Gender, Specialization spec) :base(name, age, Gender)
         {
             DoctorID = did;
@@ -34,8 +35,17 @@ namespace HospitalClassINhernite
             Doctorlist.Remove(patient);
         }
 
+       public void DisplayAssignedClinics(Doctor doctor)
+        {
+            Console.WriteLine("Assigned Clinics:");
 
-        
+            foreach (var clinic in AssignedClinics)
+            {
+                Console.WriteLine(clinic.ClinicName);
+            }
+        }
+
+
         public override void DisplayInfo()
         {
             base.DisplayInfo();
