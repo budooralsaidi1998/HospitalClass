@@ -4,18 +4,19 @@ namespace HospitalClassINhernite
 {
     public class Patient:Person
     {
-        List<Doctor>doctors = new List<Doctor>();
+        
         public int PatientID;
         public string Ailment;
-        public string AssignedDoctor;
-        public int Room = 0;
-        
-        public Patient(int pationid,string name, int age, string Gender,string ailmenrt,string assigndoctor):base(name, age, Gender)
+        public Doctor AssignedDoctor { get; private set; }
+        public Room ?AssignedRoom { get; set; }
+
+        public Patient(int pationid,string name, int age, Gender gender,string ailmenrt,Doctor doctor):base(name, age, gender)
         {
             PatientID = pationid;
             Ailment = ailmenrt;
-            //id of doctor
-            AssignedDoctor = assigndoctor;
+            AssignedDoctor = doctor;
+
+        
            
             
 
@@ -27,12 +28,16 @@ namespace HospitalClassINhernite
 
         }
 
+        public void AssignRoom(Room room)
+        {
+            room.OccupyRoom();
+            AssignedRoom = room;
+        }
+
         public void Discharge()
         {
-            if (AssignedDoctor != null)
-            {
-                Console.WriteLine($" this patient id discharge from room {Room}");
-            }
+            AssignedRoom.VacateRoom();
+            AssignedRoom = null;
         }
 
     }
