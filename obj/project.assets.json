@@ -8,19 +8,19 @@
     "net8.0": []
   },
   "packageFolders": {
-    "C:\\Users\\codeline User\\.nuget\\packages\\": {}
+    "C:\\Users\\budoo\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\projects\\HospitalClassINhernite\\HospitalClassINhernite.csproj",
+      "projectUniqueName": "C:\\projects\\hospital\\HospitalClassINhernite.csproj",
       "projectName": "HospitalClassINhernite",
-      "projectPath": "C:\\projects\\HospitalClassINhernite\\HospitalClassINhernite.csproj",
-      "packagesPath": "C:\\Users\\codeline User\\.nuget\\packages\\",
-      "outputPath": "C:\\projects\\HospitalClassINhernite\\obj\\",
+      "projectPath": "C:\\projects\\hospital\\HospitalClassINhernite.csproj",
+      "packagesPath": "C:\\Users\\budoo\\.nuget\\packages\\",
+      "outputPath": "C:\\projects\\hospital\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\codeline User\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\budoo\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [

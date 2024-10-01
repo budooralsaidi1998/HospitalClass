@@ -25,6 +25,7 @@ namespace HospitalClassINhernite
         {
             base.DisplayInfo();
             Console.WriteLine($" pation id : {PatientID} , aliment : {Ailment} ");
+         
 
         }
 
