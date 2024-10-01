@@ -32,12 +32,14 @@ namespace HospitalClassINhernite
         {
             room.OccupyRoom();
             AssignedRoom = room;
+            Console.WriteLine("success assign the patient");
         }
 
         public void Discharge()
         {
             AssignedRoom.VacateRoom();
             AssignedRoom = null;
+            Console.WriteLine("success discharge the patient");
         }
 
     }
