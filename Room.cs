@@ -1,48 +1,46 @@
 ﻿
 
+using static HospitalClassINhernite.Room;
+
 namespace HospitalClassINhernite
 {
     public class Room
     {
         public static List<Patient> roomlist = new List<Patient>();
         public int RoomNumber;
-        public string RoomType;
-        public bool IsOccupied = true;
+        public enum RoomType { General, ICU, OperationTheater }
+        public RoomType R { get; set; }
+        public bool IsOccupied;
 
-        public Room(int roomNumber, string roomType, bool isOccupied)
+        public Room(int roomNumber, RoomType roomType)
         {
             RoomNumber = roomNumber;
-            RoomType = roomType;
-            IsOccupied = isOccupied;
+            R = roomType;
+            
         }
 
 
         public void OccupyRoom()
         {
-            for (int i = 0; i < roomlist.Count; i++)
+            if (IsOccupied)
             {
-                if (roomlist[i].Room == RoomNumber)
-                {
-                    Console.WriteLine($"Room {RoomNumber} is occupied: {IsOccupied}");
-                }
-                else
-                {
-                    Console.WriteLine($"Room {RoomNumber} is occupied: {!IsOccupied}");
-                }
+                Console.WriteLine("<!>This room is already booked :( <!>");
             }
-               
+            else
+            {
+                IsOccupied = true;
+            }
         }
         public void VacateRoom()
         {
-            for (int i = 0; i < roomlist.Count; i++)
+            if (!IsOccupied)
             {
-                if (roomlist[i].Room == null)
-                
-                {
-                    Console.WriteLine($"Room {RoomNumber} is available");
-                }
+                Console.WriteLine("<!>This room is not occupied :( <!>");
             }
-
+            else
+            {
+                IsOccupied = false;
+            }
         }
     }
 }
