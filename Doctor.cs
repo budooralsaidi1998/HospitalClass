@@ -45,6 +45,17 @@ namespace HospitalClassINhernite
             }
         }
 
+        //learn new thing "to shortdatestring"
+        //
+        public void AssignToClinic(Clinic clinic, DateTime day, TimeSpan period)
+        {
+            if (!AssignedClinics.Contains(clinic))
+            {
+                AssignedClinics.Add(clinic);
+            }
+            clinic.AddAvailableAppointment(this, day, period);
+            Console.WriteLine($"Doctor {Name} assigned to {clinic.ClinicName} on {day.ToShortDateString()}.");
+        }
 
         public override void DisplayInfo()
         {
