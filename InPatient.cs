@@ -35,7 +35,13 @@ namespace HospitalClassINhernite
             Console.WriteLine("success discharge the patient");
         }
 
+        public override void DisplayInfo()
+        {
+            base.DisplayInfo();
+            Console.WriteLine($" pation id : {PatientID} , aliment : {Ailment} ,Room Number:{room.RoomNumber},Assign doctor : {AssignedDoctor.Name}");
+             
 
+        }
 
 
 
