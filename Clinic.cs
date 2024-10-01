@@ -26,6 +26,23 @@ namespace HospitalClassINhernite
             spClinic = spp;
         }
 
+        public void AddRoom(Room room)
+        {
+            if (!rooms.Contains(room))
+            {
+                rooms.Add(room);
+            }
+        }
+        public void AddAvailableAppointment(Doctor doctor, Appointment appointment)
+       
+        {
+            if (!AvailableAppointments.ContainsKey(doctor))
+            {
+
+                AvailableAppointments[doctor].Add(appointment);
+            }
+
+        }
 
 
     }
