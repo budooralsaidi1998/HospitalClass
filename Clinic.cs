@@ -19,7 +19,12 @@ namespace HospitalClassINhernite
 
         public Dictionary<Doctor, List<Appointment>> AvailableAppointments= new Dictionary<Doctor, List<Appointment>>();
  
-
+        public Clinic(int IdClinic,string clinicname,Specialization spp)
+        {
+            ClinicID = IdClinic;
+            ClinicName = clinicname;
+            spClinic = spp;
+        }
 
 
 
