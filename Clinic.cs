@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿
 
 namespace HospitalClassINhernite
 {
@@ -33,16 +29,42 @@ namespace HospitalClassINhernite
                 rooms.Add(room);
             }
         }
-        public void AddAvailableAppointment(Doctor doctor, Appointment appointment)
+        public void AddAvailableAppointment(Doctor doctor, DateTime appointmentDay, TimeSpan period)
        
         {
             if (!AvailableAppointments.ContainsKey(doctor))
             {
 
-                AvailableAppointments[doctor].Add(appointment);
+                AvailableAppointments[doctor]= new List<Appointment>();
+
             }
 
+            for (int i = 0; i < 8; i++) // Generates 8 one-hour slots
+            {
+                var appointmentTime = period.Add(TimeSpan.FromHours(i));
+                var appointment = new Appointment(null,appointmentDay, appointmentTime);
+                AvailableAppointments[doctor].Add(appointment);
+            }
+            Console.WriteLine($"Available appointments added for Dr. {doctor.Name} on {appointmentDay.ToShortDateString()}.");
         }
+
+
+
+        public void BookAppointment(Patient patient, Doctor doctor, DateTime appointmentDay, TimeSpan appointmentTime)
+        {
+            var appointment = AvailableAppointments[doctor].Find(a => a.AppointmentDate == appointmentDay && a.AppointmentTime == appointmentTime && !a.IsBooked);
+            if (appointment != null)
+            {
+                appointment.patient = patient;
+                //appointment.ScheduleAppointment();
+            }
+            else
+            {
+                Console.WriteLine("Appointment is not available.");
+            }
+        }
+
+    }
 
 
     }
