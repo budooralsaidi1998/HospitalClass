@@ -15,29 +15,25 @@ namespace HospitalClassINhernite
        public static List<Patient> Doctorlist = new List<Patient>();
 
 
-        public Doctor(int did , string name,int age , string Gender,string spec):base(name, age, Gender)
+        public Doctor(int did , string name,int age , Gender Gender,string spec):base(name, age, Gender)
         {
             DoctorID = did;
             Specialization = spec;
         }
 
-        public void AddPatient()
+        public void AddPatient(Patient patient)
         {
 
-            Doctorlist.Add(new Patient((101,"John Doe", 30, "Gender.Male", "Heart Disease", "doctor1")));
+            Doctorlist.Add(patient);
         }
-        public void RemovePatient()
+
+        public void RemovePatient(Patient patient)
         {
-            Console.WriteLine(" enter patient id to remove:");
-            int id = int.Parse(Console.ReadLine());
-            for (int i = 0; i < Doctorlist.Count; i++)
-            {
-                if (Doctorlist[i].PatientID == id)
-                {
-                    Doctorlist.RemoveAt(i);
-                }
-            }
+            Doctorlist.Remove(patient);
         }
+
+
+
         public override void DisplayInfo()
         {
             base.DisplayInfo();
