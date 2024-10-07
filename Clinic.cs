@@ -1,5 +1,7 @@
 ﻿
 
+using System.Xml.Linq;
+
 namespace HospitalClassINhernite
 {
     public class Clinic
@@ -39,15 +41,36 @@ namespace HospitalClassINhernite
 
             }
 
-            for (int i = 0; i < 8; i++) // Generates 8 one-hour slots
+            TimeSpan startTime = new TimeSpan(9, 0, 0);
+            for (int i = 0; i < period.TotalHours; i++)
             {
-                var appointmentTime = period.Add(TimeSpan.FromHours(i));
-                var appointment = new Appointment(null,appointmentDay, appointmentTime);
-                AvailableAppointments[doctor].Add(appointment);
+                Appointment newAppointment = new Appointment(null, appointmentDay, startTime.Add(new TimeSpan(i, 0, 0)));
+                AvailableAppointments[doctor].Add(newAppointment);
+                Console.WriteLine($"Available appointment added for {doctor.Name} at {startTime.Add(new TimeSpan(i, 0, 0))}.");
             }
-            Console.WriteLine($"Available appointments added for Dr. {doctor.Name} on {appointmentDay.ToShortDateString()}.");
+           
         }
 
+
+        public void DisplayAvailableAppointments()
+        {
+            if (AvailableAppointments.Count == 0)
+            {
+                Console.WriteLine("No available appointments at the moment.");
+                return;
+            }
+            foreach (var doctorAppointments in AvailableAppointments)
+            {
+                Doctor doctor = doctorAppointments.Key;
+                List<Appointment> appointments = doctorAppointments.Value;
+                Console.WriteLine($"\nDoctor: Dr. {doctor.Name} (ID: {doctor.DoctorID})");
+                Console.WriteLine("Available Appointments:");
+                foreach (var appointment in appointments)
+                {
+                    Console.WriteLine($"- {appointment.AppointmentDate:MMMM dd, yyyy - h:mm tt}");
+                }
+            }
+        }
 
 
         public void BookAppointment(Patient patient, Doctor doctor, DateTime appointmentDay, TimeSpan appointmentTime)
@@ -56,7 +79,7 @@ namespace HospitalClassINhernite
             if (appointment != null)
             {
                 appointment.patient = patient;
-                //appointment.ScheduleAppointment();
+                appointment.ScheduleAppointment( appointmentDay, appointmentTime);
             }
             else
             {
@@ -68,4 +91,4 @@ namespace HospitalClassINhernite
 
 
     }
-}
+

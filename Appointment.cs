@@ -8,7 +8,7 @@ namespace HospitalClassINhernite
         public Doctor doctor;
         public DateTime ?AppointmentDate;
         public TimeSpan AppointmentTime;
-        public bool IsBooked { get; private set; }
+        public bool IsBooked;
 
         public Appointment(Patient patient, Doctor doctor,DateTime dateappo,TimeSpan appointmentTime,bool booked)
         {
@@ -20,6 +20,13 @@ namespace HospitalClassINhernite
             IsBooked = booked;
         }
 
+        public Appointment(Doctor doctor,DateTime date,TimeSpan time)
+        {
+            this.doctor = doctor;
+            AppointmentDate=date;
+            AppointmentTime=time;
+
+        }
         public void ScheduleAppointment(DateTime appointmentDate, TimeSpan appointmentTime)
         {
             //is booked 
