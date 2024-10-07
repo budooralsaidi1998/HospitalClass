@@ -11,7 +11,7 @@ namespace HospitalClassINhernite
       
 
         public int DoctorID;
-        public enum Specialization { Cardiology, Neurology, Dermatology };
+        public enum Specialization { Cardiology, Neurology, Dermatology }
         public  Specialization sp;
 
        public static List<Patient> Doctorlist = new List<Patient>();
@@ -49,12 +49,11 @@ namespace HospitalClassINhernite
         //
         public void AssignToClinic(Clinic clinic, DateTime day, TimeSpan period)
         {
-            if (!AssignedClinics.Contains(clinic))
-            {
-                AssignedClinics.Add(clinic);
-            }
+            AssignedClinics.Add(clinic);
             clinic.AddAvailableAppointment(this, day, period);
-            Console.WriteLine($"Doctor {Name} assigned to {clinic.ClinicName} on {day.ToShortDateString()}.");
+            DateTime startTime = day.Date.AddHours(9);
+            DateTime endTime = startTime.Add(period);
+            Console.WriteLine($"Doctor Dr. {Name} is assigned to the {clinic.ClinicName} for {day:MMMM d, yyyy}, {startTime:hh:mm tt} to {endTime:hh:mm tt}.");
         }
 
         public override void DisplayInfo()
