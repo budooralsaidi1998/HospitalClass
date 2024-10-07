@@ -8,12 +8,12 @@ namespace HospitalClassINhernite
 {
     public class InPatient:Patient
     {
-
+            
          public Room room;
         public Doctor AssignedDoctor;
         public DateTime AdmissionDate;
         public Room? AssignedRoom { get; set; }
-        public InPatient(int pationid, string name, int age, Gender gender, string ailmenrt, DateTime admissionDate, Room rooms, Doctor AssignedDoctors,Room assignroom) :base( pationid, name, age,  gender,  ailmenrt, AssignedDoctors)
+        public InPatient(string name, int pationid, Gender gender, int age, string ailmenrt, DateTime admissionDate, Room rooms, Doctor AssignedDoctors,Room assignroom) :base( pationid, name, age,  gender,  ailmenrt, AssignedDoctors)
         {
             AdmissionDate = admissionDate;
             room = rooms;
@@ -30,9 +30,9 @@ namespace HospitalClassINhernite
 
         public void Discharge(Room room)
         {
-            room.VacateRoom();
+            AssignedRoom.VacateRoom();
             AssignedRoom = null;
-            Console.WriteLine("success discharge the patient");
+            Console.WriteLine($"success discharge the patient from {room.RoomNumber}");
         }
 
         public override void DisplayInfo()
