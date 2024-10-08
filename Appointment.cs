@@ -1,7 +1,7 @@
 ﻿
 namespace HospitalClassINhernite
 {
-    public class Appointment
+    public class Appointment: IDisplayInfo
     {
 
        public Patient patient;
@@ -16,7 +16,7 @@ namespace HospitalClassINhernite
             this.doctor = doctor;
             AppointmentDate=dateappo;
             AppointmentTime=appointmentTime;
-            AppointmentTime = appointmentTime;
+          
             IsBooked = booked;
         }
 
@@ -48,7 +48,10 @@ namespace HospitalClassINhernite
         }
 
 
-
+        public void DisplayInfo()
+        {
+            Console.WriteLine($"date : {AppointmentDate}, time is : {AppointmentTime},is booked : {IsBooked}");
+        }
 
     }
 }
