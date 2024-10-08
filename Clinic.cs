@@ -4,7 +4,7 @@ using System.Xml.Linq;
 
 namespace HospitalClassINhernite
 {
-    public class Clinic
+    public class Clinic: IDisplayInfo
     {
 
         public int ClinicID;
@@ -87,6 +87,11 @@ namespace HospitalClassINhernite
             }
         }
 
+
+        public void DisplayInfo()
+        {
+            Console.WriteLine( $"Clinic name : {ClinicName},Clinic sp : {spClinic}");
+        }
     }
 
 
