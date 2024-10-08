@@ -4,7 +4,7 @@ using System.Reflection;
 
 namespace HospitalClassINhernite
 {
-    public class Doctor:Person
+    public class Doctor:Person, IDisplayInfo
     {
 
 
