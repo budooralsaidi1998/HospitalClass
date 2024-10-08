@@ -2,7 +2,10 @@
 
 namespace HospitalClassINhernite
 {
-   public abstract class Person
+
+
+   
+   public abstract class Person: IDisplayInfo
     {
 
         public string Name;
